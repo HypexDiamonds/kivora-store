@@ -3,66 +3,34 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIVÓRA STORE | Free Fire</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KIVÓRA STORE</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#080710;color:white;
- font-family:Arial,sans-serif;
-}
-header{
- padding:28px 18px;text-align:center;
- background:linear-gradient(135deg,#17102c,#080710);
- border-bottom:1px solid #753bce;
-}
-.logo{font-size:32px;font-weight:900;letter-spacing:4px}
-.logo span{color:#ad70ff}
-header p{color:#aaa;letter-spacing:4px;font-size:10px}
-main{max-width:650px;margin:auto;padding:22px 16px}
+body{margin:0;background:#090711;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 15px;background:#151024;border-bottom:1px solid #7540b9}
+.logo{font-size:30px;font-weight:900;letter-spacing:3px}
+.logo span{color:#b77aff}
+header p{font-size:10px;letter-spacing:4px;color:#aaa}
+main{max-width:650px;margin:auto;padding:20px 15px}
 h2{font-size:21px}
-.subtitle{color:#aaa;font-size:13px}
-.packages{
- display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
- margin-top:20px;
-}
-.package{
- background:#151222;border:1px solid #302344;
- border-radius:13px;padding:17px 10px;
- text-align:center;cursor:pointer;
-}
-.package.selected{
- border:2px solid #a45cff;
- background:#211437;
-}
-.diamonds{font-size:22px;font-weight:bold}
-.bonus{
- display:inline-block;background:#51248a;
- color:#e6ceff;padding:5px 9px;
- border-radius:20px;font-size:11px;
- margin:9px 0;
-}
-.receive{color:#c99aff;font-size:13px}
-.price{font-size:16px;font-weight:bold;margin-top:10px}
-label{display:block;margin:20px 0 8px;font-size:13px}
-input,select{
- width:100%;padding:14px;border-radius:9px;
- background:#151222;color:white;
- border:1px solid #493365;font-size:15px;
-}
-button{
- width:100%;padding:15px;margin-top:20px;
- background:linear-gradient(90deg,#7438c9,#a45cff);
- border:0;border-radius:10px;color:white;
- font-size:16px;font-weight:bold;
-}
-.summary{
- margin-top:20px;padding:17px;
- background:#151222;border:1px solid #302344;
- border-radius:12px;line-height:1.9;
-}
-.muted{color:#aaa;font-size:12px}
-footer{text-align:center;color:#777;font-size:11px;padding:25px}
+.muted{color:#aaa;font-size:13px}
+.packages{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0}
+.package{background:#171322;border:1px solid #38274e;border-radius:12px;padding:16px 8px;text-align:center;cursor:pointer}
+.package.selected{border:2px solid #ad69ff;background:#25163b}
+.diamonds{font-size:21px;font-weight:bold}
+.bonus{display:inline-block;background:#512681;padding:5px 9px;border-radius:20px;font-size:11px;margin:9px 0}
+.receive{color:#cda4ff;font-size:13px}
+.price{font-weight:bold;margin-top:10px}
+.section{margin-top:24px;padding:17px;background:#151221;border:1px solid #352546;border-radius:12px}
+label{display:block;margin:15px 0 7px;font-size:13px}
+input,select{width:100%;padding:13px;border:1px solid #49335e;border-radius:9px;background:#0e0b17;color:white;font-size:15px}
+.payment{display:block;padding:13px;margin:9px 0;background:#211a30;border:1px solid #49335e;border-radius:9px}
+.payment input{width:auto;margin-right:8px}
+button{width:100%;padding:15px;margin-top:18px;border:0;border-radius:10px;background:linear-gradient(90deg,#7136c5,#ad65ff);color:white;font-weight:bold;font-size:15px}
+.summary{line-height:1.9;color:#ddd;font-size:14px}
+.warning{font-size:12px;color:#e8caff;line-height:1.6}
+footer{text-align:center;padding:25px;color:#777;font-size:11px}
 </style>
 </head>
 <body>
@@ -73,29 +41,53 @@ footer{text-align:center;color:#777;font-size:11px;padding:25px}
 
 <main>
  <h2>💎 Recarga de diamantes</h2>
- <p class="subtitle">Selecciona tu paquete de Free Fire.</p>
-
+ <p class="muted">Elige tu paquete favorito de Free Fire.</p>
  <div class="packages" id="packages"></div>
 
- <label for="player">ID de jugador</label>
- <input id="player" type="text" placeholder="Ingresa tu ID">
+ <div class="section">
+  <h2>📋 Datos del pedido</h2>
+  <label for="player">ID de jugador</label>
+  <input id="player" placeholder="Ingresa tu ID" inputmode="numeric">
 
- <label for="region">Región de tu cuenta</label>
- <select id="region">
-  <option value="Sudamérica">Sudamérica</option>
-  <option value="Vietnam">Vietnam</option>
- </select>
-
- <div class="summary" id="summary">
-  Selecciona un paquete para ver el resumen.
+  <label for="region">Región</label>
+  <select id="region">
+   <option>Sudamérica</option>
+   <option>Vietnam</option>
+  </select>
  </div>
 
- <button onclick="order()">CONTINUAR</button>
+ <div class="section">
+  <h2>💳 Método de pago</h2>
 
- <p class="muted">
-  MODO DEMOSTRACIÓN: esta página todavía no procesa pagos
-  ni entrega diamantes. No envíes dinero desde ella.
- </p>
+  <label class="payment">
+   <input type="radio" name="payment" value="Yape / Plin" checked>
+   Yape / Plin
+  </label>
+
+  <label class="payment">
+   <input type="radio" name="payment" value="Binance Pay">
+   Binance Pay
+  </label>
+
+  <label class="payment">
+   <input type="radio" name="payment" value="Transferencia cripto Binance">
+   Transferencia cripto Binance
+  </label>
+ </div>
+
+ <div class="section">
+  <h2>🧾 Comprobante de pago</h2>
+  <label for="proof">Seleccionar imagen del comprobante</label>
+  <input id="proof" type="file" accept="image/*">
+  <p class="warning">El comprobante se selecciona en tu dispositivo, pero esta página todavía no puede almacenarlo ni enviarlo automáticamente. Tendrás que adjuntarlo manualmente en WhatsApp.</p>
+ </div>
+
+ <div class="section">
+  <h2>🛒 Resumen</h2>
+  <div class="summary" id="summary"></div>
+  <button onclick="sendOrder()">CONTINUAR POR WHATSAPP</button>
+  <p class="warning">Modo de demostración: no se realizan cobros ni recargas reales. No envíes dinero todavía.</p>
+ </div>
 </main>
 
 <footer>KIVÓRA STORE © 2026</footer>
@@ -121,7 +113,7 @@ function render(){
   card.innerHTML=`
    <div class="diamonds">💎 ${p.amount.toLocaleString("en-US")}</div>
    <div class="bonus">+10% BONUS</div>
-   <div class="receive">Recibes ${ (p.amount+p.bonus).toLocaleString("en-US") }</div>
+   <div class="receive">Recibes ${(p.amount+p.bonus).toLocaleString("en-US")}</div>
    <div class="price">${p.price}</div>`;
   card.onclick=()=>{selected=i;render();updateSummary()};
   container.appendChild(card);
@@ -131,26 +123,35 @@ function render(){
 function updateSummary(){
  const p=products[selected];
  document.getElementById("summary").innerHTML=`
-  <b>Resumen de compra</b><br>
-  Paquete: ${p.amount.toLocaleString("en-US")} diamantes<br>
-  Bonus: +${p.bonus.toLocaleString("en-US")} diamantes<br>
-  <b>Recibes: ${(p.amount+p.bonus).toLocaleString("en-US")} diamantes</b><br>
-  Precio: ${p.price}`;
+ Paquete: ${p.amount.toLocaleString("en-US")} diamantes<br>
+ Bonus: +${p.bonus.toLocaleString("en-US")}<br>
+ <b>Recibes: ${(p.amount+p.bonus).toLocaleString("en-US")} diamantes</b><br>
+ Precio: ${p.price}`;
 }
 
-function order(){
+function sendOrder(){
  const id=document.getElementById("player").value.trim();
  const region=document.getElementById("region").value;
- if(!id){alert("Ingresa tu ID de jugador.");return;}
+ const payment=document.querySelector('input[name="payment"]:checked').value;
+ const proof=document.getElementById("proof").files[0];
  const p=products[selected];
- alert("PEDIDO DE DEMOSTRACIÓN\n"+
- "ID: "+id+"\n"+
- "Región: "+region+"\n"+
- "Paquete: "+p.amount+" diamantes\n"+
- "Bonus: +"+p.bonus+"\n"+
- "Recibes: "+(p.amount+p.bonus)+" diamantes\n"+
- "Precio: "+p.price+
- "\n\nEsta página aún no procesa pedidos reales.");
+
+ if(!id){alert("Ingresa tu ID de jugador.");return;}
+ if(p.price==="Consultar"){alert("Este paquete todavía no tiene precio confirmado.");return;}
+ if(!proof){alert("Selecciona tu comprobante.");return;}
+
+ const message=
+ `Hola, quiero consultar un pedido en KIVÓRA STORE.
+ ID: ${id}
+ Región: ${region}
+ Paquete: ${p.amount} diamantes
+ Bonus: +${p.bonus}
+ Recibo: ${p.amount+p.bonus} diamantes
+ Precio: ${p.price}
+ Método de pago: ${payment}
+ Solicito verificar mi pedido.`;
+
+ alert(message+"\n\nEsta es una demostración. WhatsApp todavía no está conectado y debes adjuntar el comprobante manualmente.");
 }
 
 render();
