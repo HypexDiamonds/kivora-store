@@ -4,293 +4,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIVÓRA STORE</title>
-
+<title>KIVÓRA STORE | Free Fire</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080710;color:white;
+ font-family:Arial,sans-serif;
 }
-
-body {
-    background: #090711;
-    color: white;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
+header{
+ padding:28px 18px;text-align:center;
+ background:linear-gradient(135deg,#17102c,#080710);
+ border-bottom:1px solid #753bce;
 }
-
-header {
-    padding: 22px;
-    text-align: center;
-    border-bottom: 1px solid #302044;
+.logo{font-size:32px;font-weight:900;letter-spacing:4px}
+.logo span{color:#ad70ff}
+header p{color:#aaa;letter-spacing:4px;font-size:10px}
+main{max-width:650px;margin:auto;padding:22px 16px}
+h2{font-size:21px}
+.subtitle{color:#aaa;font-size:13px}
+.packages{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+ margin-top:20px;
 }
-
-.logo {
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    color: #c49aff;
+.package{
+ background:#151222;border:1px solid #302344;
+ border-radius:13px;padding:17px 10px;
+ text-align:center;cursor:pointer;
 }
-
-header p {
-    color: #aaa;
-    font-size: 11px;
-    letter-spacing: 3px;
-    margin-top: 7px;
+.package.selected{
+ border:2px solid #a45cff;
+ background:#211437;
 }
-
-.hero {
-    text-align: center;
-    padding: 45px 20px 30px;
+.diamonds{font-size:22px;font-weight:bold}
+.bonus{
+ display:inline-block;background:#51248a;
+ color:#e6ceff;padding:5px 9px;
+ border-radius:20px;font-size:11px;
+ margin:9px 0;
 }
-
-.diamond {
-    font-size: 55px;
-    margin-bottom: 15px;
+.receive{color:#c99aff;font-size:13px}
+.price{font-size:16px;font-weight:bold;margin-top:10px}
+label{display:block;margin:20px 0 8px;font-size:13px}
+input,select{
+ width:100%;padding:14px;border-radius:9px;
+ background:#151222;color:white;
+ border:1px solid #493365;font-size:15px;
 }
-
-h1 {
-    font-size: 30px;
-    margin-bottom: 12px;
+button{
+ width:100%;padding:15px;margin-top:20px;
+ background:linear-gradient(90deg,#7438c9,#a45cff);
+ border:0;border-radius:10px;color:white;
+ font-size:16px;font-weight:bold;
 }
-
-h1 span {
-    color: #b77aff;
+.summary{
+ margin-top:20px;padding:17px;
+ background:#151222;border:1px solid #302344;
+ border-radius:12px;line-height:1.9;
 }
-
-.hero p {
-    color: #aaa;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 460px;
-    margin: auto;
-    padding: 20px;
-}
-
-.section-title {
-    margin: 20px 0;
-    font-size: 19px;
-}
-
-.products {
-    display: grid;
-    gap: 13px;
-}
-
-.product {
-    background: #151020;
-    border: 1px solid #38244f;
-    border-radius: 15px;
-    padding: 19px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.product:hover, .product.selected {
-    border-color: #bd83ff;
-    background: #211333;
-}
-
-.product strong {
-    font-size: 18px;
-}
-
-.product small {
-    color: #aaa;
-}
-
-.price {
-    color: #d2a8ff;
-    font-size: 19px;
-    font-weight: bold;
-}
-
-.form {
-    margin-top: 30px;
-    background: #151020;
-    border: 1px solid #38244f;
-    border-radius: 15px;
-    padding: 20px;
-}
-
-label {
-    display: block;
-    margin: 16px 0 8px;
-    color: #ccc;
-}
-
-input, select {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #453158;
-    border-radius: 9px;
-    background: #090711;
-    color: white;
-    outline: none;
-}
-
-.summary {
-    background: #211333;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-    line-height: 2;
-}
-
-button {
-    width: 100%;
-    margin-top: 18px;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #8c43dc, #bd83ff);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.notice {
-    color: #aaa;
-    font-size: 12px;
-    text-align: center;
-    line-height: 1.6;
-    margin-top: 20px;
-}
-
-footer {
-    text-align: center;
-    color: #777;
-    padding: 30px 15px;
-    font-size: 12px;
-}
+.muted{color:#aaa;font-size:12px}
+footer{text-align:center;color:#777;font-size:11px;padding:25px}
 </style>
 </head>
-
 <body>
-
 <header>
-    <div class="logo">KIVÓRA</div>
-    <p>YOUR DIGITAL WORLD</p>
+ <div class="logo">KIVÓRA <span>STORE</span></div>
+ <p>YOUR DIGITAL WORLD</p>
 </header>
 
-<section class="hero">
-    <div class="diamond">💎</div>
-    <h1>RECARGA <span>DIAMANTES</span></h1>
-    <p>Tu experiencia Free Fire comienza aquí.<br>
-    Rápido, sencillo y seguro.</p>
-</section>
+<main>
+ <h2>💎 Recarga de diamantes</h2>
+ <p class="subtitle">Selecciona tu paquete de Free Fire.</p>
 
-<main class="container">
+ <div class="packages" id="packages"></div>
 
-    <h2 class="section-title">Selecciona tu paquete</h2>
+ <label for="player">ID de jugador</label>
+ <input id="player" type="text" placeholder="Ingresa tu ID">
 
-    <div class="products">
+ <label for="region">Región de tu cuenta</label>
+ <select id="region">
+  <option value="Sudamérica">Sudamérica</option>
+  <option value="Vietnam">Vietnam</option>
+ </select>
 
-        <div class="product selected" onclick="selectProduct(100,3.50,this)">
-            <div>
-                <strong>💎 100 Diamantes</strong><br>
-                <small>Paquete básico</small>
-            </div>
-            <div class="price">S/ 3.50</div>
-        </div>
+ <div class="summary" id="summary">
+  Selecciona un paquete para ver el resumen.
+ </div>
 
-        <div class="product" onclick="selectProduct(310,10,this)">
-            <div>
-                <strong>💎 310 Diamantes</strong><br>
-                <small>Paquete popular</small>
-            </div>
-            <div class="price">S/ 10.00</div>
-        </div>
+ <button onclick="order()">CONTINUAR</button>
 
-        <div class="product" onclick="selectProduct(520,16.50,this)">
-            <div>
-                <strong>💎 520 Diamantes</strong><br>
-                <small>Paquete premium</small>
-            </div>
-            <div class="price">S/ 16.50</div>
-        </div>
-
-    </div>
-
-    <div class="form">
-        <h2>Datos de recarga</h2>
-
-        <label>ID de jugador</label>
-        <input type="text" id="playerID" placeholder="Ingresa tu ID de Free Fire">
-
-        <label>Región</label>
-        <select id="region">
-            <option value="Sudamérica">Sudamérica</option>
-            <option value="Vietnam">Vietnam</option>
-        </select>
-
-        <div class="summary">
-            <strong>Resumen del pedido</strong><br>
-            Paquete: <span id="diamonds">100</span> diamantes<br>
-            Total: <span id="total">S/ 3.50</span>
-        </div>
-
-        <button onclick="demoOrder()">CONTINUAR</button>
-
-        <p class="notice">
-            MODO DEMOSTRACIÓN.<br>
-            Esta página todavía no procesa pagos ni entrega diamantes.
-            No envíes dinero desde ella.
-        </p>
-    </div>
-
+ <p class="muted">
+  MODO DEMOSTRACIÓN: esta página todavía no procesa pagos
+  ni entrega diamantes. No envíes dinero desde ella.
+ </p>
 </main>
 
-<footer>
-    © 2026 KIVÓRA STORE<br>
-    YOUR DIGITAL WORLD
-</footer>
+<footer>KIVÓRA STORE © 2026</footer>
 
 <script>
-let selectedDiamonds = 100;
-let selectedPrice = 3.50;
+const products=[
+ {amount:100,bonus:10,price:"S/ 3.50"},
+ {amount:310,bonus:31,price:"S/ 10.00"},
+ {amount:520,bonus:52,price:"S/ 16.50"},
+ {amount:1060,bonus:106,price:"Consultar"},
+ {amount:2180,bonus:218,price:"Consultar"},
+ {amount:5600,bonus:560,price:"Consultar"}
+];
 
-function selectProduct(diamonds, price, element) {
-    selectedDiamonds = diamonds;
-    selectedPrice = price;
+let selected=0;
 
-    document.querySelectorAll(".product").forEach(p => {
-        p.classList.remove("selected");
-    });
-
-    element.classList.add("selected");
-
-    document.getElementById("diamonds").textContent = diamonds;
-    document.getElementById("total").textContent =
-        "S/ " + price.toFixed(2);
+function render(){
+ const container=document.getElementById("packages");
+ container.innerHTML="";
+ products.forEach((p,i)=>{
+  const card=document.createElement("div");
+  card.className="package"+(i===selected?" selected":"");
+  card.innerHTML=`
+   <div class="diamonds">💎 ${p.amount.toLocaleString("en-US")}</div>
+   <div class="bonus">+10% BONUS</div>
+   <div class="receive">Recibes ${ (p.amount+p.bonus).toLocaleString("en-US") }</div>
+   <div class="price">${p.price}</div>`;
+  card.onclick=()=>{selected=i;render();updateSummary()};
+  container.appendChild(card);
+ });
 }
 
-function demoOrder() {
-    const id = document.getElementById("playerID").value.trim();
-    const region = document.getElementById("region").value;
-
-    if (!id) {
-        alert("Ingresa tu ID de jugador.");
-        return;
-    }
-
-    alert(
-        "PEDIDO DE DEMOSTRACIÓN\n\n" +
-        "ID: " + id +
-        "\nRegión: " + region +
-        "\nDiamantes: " + selectedDiamonds +
-        "\nTotal: S/ " + selectedPrice.toFixed(2) +
-        "\n\nTodavía no hay pagos ni recargas reales."
-    );
+function updateSummary(){
+ const p=products[selected];
+ document.getElementById("summary").innerHTML=`
+  <b>Resumen de compra</b><br>
+  Paquete: ${p.amount.toLocaleString("en-US")} diamantes<br>
+  Bonus: +${p.bonus.toLocaleString("en-US")} diamantes<br>
+  <b>Recibes: ${(p.amount+p.bonus).toLocaleString("en-US")} diamantes</b><br>
+  Precio: ${p.price}`;
 }
+
+function order(){
+ const id=document.getElementById("player").value.trim();
+ const region=document.getElementById("region").value;
+ if(!id){alert("Ingresa tu ID de jugador.");return;}
+ const p=products[selected];
+ alert("PEDIDO DE DEMOSTRACIÓN\n"+
+ "ID: "+id+"\n"+
+ "Región: "+region+"\n"+
+ "Paquete: "+p.amount+" diamantes\n"+
+ "Bonus: +"+p.bonus+"\n"+
+ "Recibes: "+(p.amount+p.bonus)+" diamantes\n"+
+ "Precio: "+p.price+
+ "\n\nEsta página aún no procesa pedidos reales.");
+}
+
+render();
+updateSummary();
 </script>
-
 </body>
 </html>
